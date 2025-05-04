@@ -31,7 +31,7 @@ docker-compose up --build
 - The backend will be available at http://localhost:8000
 - The frontend will be available at http://localhost:3000
 - RabbitMQ management UI: http://localhost:15672 (user/pass: guest/guest)
-- Postgres: localhost:5432
+- Postgres: localhost:5434
 
 ### 4. Create a Django Superuser (Admin)
 In a new terminal, run:
@@ -61,12 +61,12 @@ Repeat for as many merchants and users as you need.
 ## Security Considerations
 - All API endpoints require JWT authentication.
 - Users and merchants can only access their own plans and data (enforced by DRF permissions).
-- JWT tokens are stored in localStorage (for demo; use httpOnly cookies in production).
+- JWT tokens are stored in localStorage (for demo).
+- JWT expires after 5 min, and get refreshed automatically.
 - Paid installments cannot be edited.
 - In production, use HTTPS and secure your secret keys.
 
 ## Trade-offs & Notes
-- Date validation and edge cases are simplified for demo purposes.
 - No registration flow; users/merchants are created via admin.
 
 
